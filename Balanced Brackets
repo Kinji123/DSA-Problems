@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool balancedBrackets(string str){
+    stack<char> st;
+
+    for(int i=0;i<str.size();i++){
+        if(str[i] == '(' || str[i] == '{' || str[i] == '['){
+            st.push(str[i]);
+        }else if(str[i] == ')') {
+            if(st.empty() || st.top() != '('){
+                return false;
+            }else{
+                st.pop();
+            }
+        }else if(str[i] == '}'){
+            if(st.empty() || st.top()!='{'){
+                return false;
+            }else{
+                //cout<<st.top();
+                st.pop();
+            }
+        }else if(str[i] == ']'){
+            if(st.empty() || st.top()!='['){
+                return false;
+            }else{
+                st.pop();
+            }
+        }
+    }
+    return st.empty(); //true 1 and false 0
+}
+int main() {
+    string str;
+    cin>>str;
+
+    if(balancedBrackets(str)){
+        cout<<"false";
+    }else{
+        cout<<"true";
+    }
+    return 0;
+}
