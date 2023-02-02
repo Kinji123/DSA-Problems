@@ -1,0 +1,32 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool isRedundantParenthesis(string str){
+    stack<char>s;
+    for(int i=0;i<str.size();i++){
+        if(str[i]!=')'){
+            s.push(str[i]);
+        }else if(str[i]==')'){
+            if(s.empty() || s.top()=='('){
+                return false;
+            }
+            while(s.top()!='('){
+                s.pop();
+            }
+            s.pop();
+        }
+    }
+    return s.empty();
+}
+
+int main() {
+    string str;
+    cin>>str;
+    if(isRedundantParenthesis(str)){
+        cout<<"false";
+    }else{
+        cout<<"true";
+    }
+    return 0;
+}
