@@ -1,2 +1,2 @@
 # DSA-Problems
-Stack & Queue problems for basic understanding. Level 1 problems
+Stack & Queue (Level 1) problems for basic understanding.
